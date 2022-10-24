@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentContactProfile"
+        android:name="fragments.FragmentContactProfile"
+        android:label="contact_profile"
+        tools:layout="@layout/fragment_contact_profile">
+        <action
+            android:id="@+id/action_fragmentContactProfile_to_fragmentMain"
+            app:destination="@id/fragmentMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="fragments.FragmentMain"
+        android:label="main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentContactProfile"
+            app:destination="@id/fragmentContactProfile" />
+        <argument
+            android:name="name"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="career"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="photo"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="address"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
