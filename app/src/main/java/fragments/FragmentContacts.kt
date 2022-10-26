@@ -16,6 +16,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StableIdKeyProvider
+import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,15 +27,21 @@ import com.example.level4.databinding.DialogAddContactBinding
 import com.example.level4.databinding.FragmentContactsBinding
 import model.User
 import model.UsersViewModel
+import util.RecyclerAdapterLookUp
+import util.Selector
 import util.UserListController
 
-class FragmentContacts : Fragment(), UserListController {
+class FragmentContacts : Fragment(), UserListController, Selector {
 
     private lateinit var binding: FragmentContactsBinding
     private lateinit var dialogBinding: DialogAddContactBinding
     private val viewModel: UsersViewModel by viewModels()
     private val usersAdapter by lazy {
-        RecyclerAdapterUserContacts(userListController = this, findNavController())
+        RecyclerAdapterUserContacts(
+            userListController = this,
+            findNavController(),
+            selector = this
+        )
     }
 
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
@@ -59,15 +69,32 @@ class FragmentContacts : Fragment(), UserListController {
         binding.tvAddContact.setOnClickListener {
             dialogCreate(inflater)
         }
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView: RecyclerView = binding.rvContacts.apply { adapter = usersAdapter }
+        setObservers()
+
+        val recyclerView: RecyclerView = binding.rvContacts.apply {
+            adapter = usersAdapter
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.setHasFixedSize(true)
+
+        val tracker: SelectionTracker<Long>? = SelectionTracker.Builder(
+            "selection",
+            recyclerView,
+            StableIdKeyProvider(recyclerView),
+            RecyclerAdapterLookUp(recyclerView),
+            StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+
+        usersAdapter.setTracker(tracker)
 
         ItemTouchHelper(
             SimpleCallBack(
@@ -77,7 +104,18 @@ class FragmentContacts : Fragment(), UserListController {
             ).simpleCallback
         ).attachToRecyclerView(recyclerView)
 
-        setObservers()
+        binding.btnDeleteSelectedContacts.apply {
+            setOnClickListener {
+                for (n in viewModel.size()!! - 1 downTo 0) {
+                    println(viewModel.getUser(n)?.selected)
+                    if (viewModel.getUser(n)?.selected == true) {
+                        onDeleteUser(n)
+                    }
+                }
+                usersAdapter.getTracker()?.clearSelection()
+                visibility = View.INVISIBLE
+            }
+        }
     }
 
     override fun onContactAdd(user: User) {
@@ -121,11 +159,18 @@ class FragmentContacts : Fragment(), UserListController {
             btnSaveContact.setOnClickListener {
                 saveButtonAction(dialog)
             }
-            ivAddPhoto.setOnClickListener() {
+            ivAddPhoto.setOnClickListener {
                 val intent =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 activityResultLauncher.launch(intent)
             }
+        }
+    }
+
+    override fun changeVisibility(selected: Boolean) {
+        when (selected) {
+            true -> binding.btnDeleteSelectedContacts.visibility = View.VISIBLE
+            else -> binding.btnDeleteSelectedContacts.visibility = View.INVISIBLE
         }
     }
 
@@ -149,7 +194,7 @@ class FragmentContacts : Fragment(), UserListController {
 
     private fun saveButtonAction(dialog: Dialog) {
         usersAdapter.submitList(viewModel.userListLiveData.value.also {
-            viewModel.userListLiveData.value?.add(
+            viewModel.add(
                 User(
                     0,
                     contactPhoto.toString(),
@@ -158,7 +203,8 @@ class FragmentContacts : Fragment(), UserListController {
                     dialogBinding.tietEmail.text.toString(),
                     dialogBinding.tietPhone.text.toString(),
                     dialogBinding.tietAddress.text.toString(),
-                    dialogBinding.tietDataOfBirth.text.toString()
+                    dialogBinding.tietDataOfBirth.text.toString(),
+                    false
                 )
             )
         }?.toMutableList())

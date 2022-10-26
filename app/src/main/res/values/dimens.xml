@@ -23,6 +23,7 @@
     <dimen name="margin_mid">16dp</dimen>
     <dimen name="margin_large">24sp</dimen>
     <dimen name="margin_extra_large">32dp</dimen>
+    <dimen name="margin_selection_item">60dp</dimen>
 
     <dimen name="grey_circle">55dp</dimen>
     <dimen name="photo_size_in_recycle_view">50dp</dimen>

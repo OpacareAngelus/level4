@@ -13,7 +13,8 @@ object UserData {
             "",
             "",
             "м.Київ",
-            ""
+            "",
+            false
         ),
         User(
             0,
@@ -23,7 +24,8 @@ object UserData {
             "",
             "",
             "м.Львів",
-            ""
+            "",
+            false
         ),
         User(
             0,
@@ -33,7 +35,8 @@ object UserData {
             "",
             "",
             "м.Дніпро",
-            ""
+            "",
+            false
         ),
         User(
             0,
@@ -43,7 +46,8 @@ object UserData {
             "",
             "",
             "м.Харків",
-            ""
+            "",
+            false
         )
     )
 }

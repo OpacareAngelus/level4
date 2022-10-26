@@ -8,7 +8,8 @@ data class User(
     val email: String,
     val phone: String,
     val homeAddress: String,
-    val dataBirth: String
+    val dataBirth: String,
+    var selected: Boolean
 )
 
 

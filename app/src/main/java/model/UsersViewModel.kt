@@ -16,7 +16,7 @@ class UsersViewModel : ViewModel() {
 
     fun getUser(position: Int) = _userListLiveData.value?.get(position)
 
-    fun size() = _userListLiveData.value?.size
+    fun size() : Int? = _userListLiveData.value?.size
 
     fun deleteUser(position: Int) = _userListLiveData.value?.removeAt(position)
     fun deleteUser(user: User) = _userListLiveData.value?.remove(user)

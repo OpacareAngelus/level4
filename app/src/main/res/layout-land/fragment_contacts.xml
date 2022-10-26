@@ -75,4 +75,15 @@
         app:layout_constraintTop_toBottomOf="@id/gl_under_v_top"
         tools:listitem="@layout/recyclerview_item" />
 
+    <ImageView
+        android:id="@+id/btn_delete_selected_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:background="@drawable/big_trash_can"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="background">@color/dark_back</item>
+        <item name="selectedItem">@color/d_khaki_extra_light</item>
         <!-- Customize your theme here. -->
         <item name="android:windowActivityTransitions">true</item>
+
     </style>
 </resources>
