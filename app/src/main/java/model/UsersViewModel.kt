@@ -21,7 +21,6 @@ class UsersViewModel : ViewModel() {
     fun deleteUser(position: Int) = _userListLiveData.value?.removeAt(position)
     fun deleteUser(user: User) = _userListLiveData.value?.remove(user)
 
-
     fun add(user: User?) {
         if(user != null) _userListLiveData.value?.add(user)
     }

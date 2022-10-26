@@ -82,7 +82,6 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         }
 
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.setHasFixedSize(true)
 
         val tracker: SelectionTracker<Long>? = SelectionTracker.Builder(
             "selection",

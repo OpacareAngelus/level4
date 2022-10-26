@@ -139,6 +139,7 @@ class RecyclerAdapterUserContacts(
                 }
                 currentList[absoluteAdapterPosition].selected = false
             }
+
             if (!tracker!!.hasSelection()) {
                 selector.changeVisibility(false)
             }
