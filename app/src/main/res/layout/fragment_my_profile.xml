@@ -9,25 +9,25 @@
     tools:context="activity.FragmentMyProfile">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_guidelineCenter"
+        android:id="@+id/glGuidelineCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50" />
 
     <View
-        android:id="@+id/v_topWindow"
+        android:id="@+id/vwTopWindow"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gl_guidelineCenter"
+        app:layout_constraintBottom_toTopOf="@id/glGuidelineCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_Settings"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_mid"
@@ -35,35 +35,35 @@
         android:text="@string/settings"
         android:textColor="?attr/colorOnPrimary"
         android:textSize="@dimen/margin_large"
-        app:layout_constraintStart_toStartOf="@+id/v_topWindow"
-        app:layout_constraintTop_toTopOf="@+id/v_topWindow" />
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/f_userData"
+        android:id="@+id/flowMyProfileUserData"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="iv_userPhoto, tv_name, tv_career, tv_userAddress"
+        app:constraint_referenced_ids="ivMyProfileUserPhoto, tvMyProfileName, tvMyProfileCareer, tvMyProfileAddress"
         app:flow_verticalGap="@dimen/margin_small"
         app:flow_verticalStyle="packed"
         app:flow_wrapMode="chain"
-        app:layout_constraintBottom_toTopOf="@+id/gl_guidelineCenter"
-        app:layout_constraintEnd_toEndOf="@+id/v_topWindow"
-        app:layout_constraintStart_toStartOf="@+id/v_topWindow"
-        app:layout_constraintTop_toTopOf="@+id/v_topWindow" />
+        app:layout_constraintBottom_toTopOf="@+id/glGuidelineCenter"
+        app:layout_constraintEnd_toEndOf="@+id/vwTopWindow"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
 
-    <ImageView
-        android:id="@+id/iv_userPhoto"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileUserPhoto"
         android:layout_width="@dimen/user_photo_size"
         android:layout_height="@dimen/user_photo_size"
         android:backgroundTint="@drawable/btn_rect"
         android:contentDescription="@string/user_photo"
-        android:foreground="@drawable/img_shaper"
+        android:foreground="@drawable/shaper"
         android:scaleType="centerCrop"
         android:src="@drawable/user_photo" />
 
-    <TextView
-        android:id="@+id/tv_name"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -71,8 +71,8 @@
         android:textSize="@dimen/large_text_size"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/tv_career"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileCareer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/career"
@@ -80,8 +80,8 @@
         android:textSize="@dimen/mid_text_size"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/tv_userAddress"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address"
@@ -90,8 +90,8 @@
         tools:ignore="MissingConstraints" />
 
 
-    <Button
-        android:id="@+id/btn_viewContact"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnViewContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_mid"
@@ -105,8 +105,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_editProfile"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEditProfile"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_profile_button_size"
         android:layout_marginLeft="@dimen/margin_mid"
@@ -119,33 +119,33 @@
         android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/mid_text_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_viewContact"
+        app:layout_constraintBottom_toTopOf="@+id/btnViewContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/f_linksToAnotherSN"
+        android:id="@+id/flowMyProfileLinksToAnotherSN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="iv_facebook, iv_linkedIn"
+        app:constraint_referenced_ids="ivMyProfileFacebook, ivMyProfileLinkedIn"
         app:flow_horizontalGap="@dimen/margin_extra_large"
         app:flow_horizontalStyle="spread_inside"
         app:flow_wrapMode="chain"
-        app:layout_constraintBottom_toTopOf="@+id/btn_editProfile"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gl_guidelineCenter">
+        app:layout_constraintTop_toTopOf="@+id/glGuidelineCenter">
     </androidx.constraintlayout.helper.widget.Flow>
 
-    <ImageView
-        android:id="@+id/iv_facebook"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/facebook_logo"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/iv_linkedIn"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileLinkedIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/linkedin_logo"

@@ -1,11 +1,12 @@
-package model
+package fragments.FragmentContacts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import data.UserData
+import data.model.User
 
-class UsersViewModel : ViewModel() {
+class FragmentContactsUsersViewModel : ViewModel() {
 
     private val _userListLiveData = MutableLiveData<MutableList<User>>()
     val userListLiveData: LiveData<MutableList<User>> = _userListLiveData

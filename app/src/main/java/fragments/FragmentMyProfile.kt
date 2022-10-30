@@ -19,7 +19,7 @@ class FragmentMyProfile : Fragment() {
         super.onCreate(savedInstanceState)
 
         binding = FragmentMyProfileBinding.inflate(layoutInflater)
-        binding.tvName.text = this.activity?.intent?.getStringExtra("name")
+        binding.tvMyProfileName.text = this.activity?.intent?.getStringExtra("name")
         return binding.root
     }
 }

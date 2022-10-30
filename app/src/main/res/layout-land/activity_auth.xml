@@ -73,13 +73,13 @@
         android:minHeight="@dimen/minHeight"
         android:textColor="?attr/colorOnSecondary"
         android:textColorHint="?attr/colorOnSecondary"
-        app:layout_constraintBottom_toTopOf="@id/f_linksToAnotherSN"
+        app:layout_constraintBottom_toTopOf="@id/flowMyProfileLinksToAnotherSN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_email" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/f_linksToAnotherSN"
+        android:id="@+id/flowMyProfileLinksToAnotherSN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
@@ -138,7 +138,7 @@
         app:layout_constraintBottom_toTopOf="@id/flow3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/f_linksToAnotherSN" />
+        app:layout_constraintTop_toBottomOf="@+id/flowMyProfileLinksToAnotherSN" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow3"

@@ -1,5 +1,9 @@
-package model
+package data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User(
     var id: Int,
     val photo: String,
@@ -10,6 +14,6 @@ data class User(
     val homeAddress: String,
     val dataBirth: String,
     var selected: Boolean
-)
+) : Parcelable
 
 

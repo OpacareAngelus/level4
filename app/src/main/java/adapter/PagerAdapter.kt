@@ -3,7 +3,7 @@ package adapter
 import activity.FragmentMyProfile
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import fragments.FragmentContacts
+import fragments.FragmentContacts.FragmentContacts
 
 class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

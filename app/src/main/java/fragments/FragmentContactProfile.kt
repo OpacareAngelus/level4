@@ -23,22 +23,25 @@ class FragmentContactProfile : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentContactProfileBinding.inflate(layoutInflater)
+
         if (arguments != null) {
-            val bundle = arguments
-            addData(bundle)
+            addData()
         }
-        binding.imgBtnBackArrow.setOnClickListener {
+
+        binding.btnBackArrow.setOnClickListener {
             findNavController().navigateUp()
         }
     }
 
-    private fun addData(bundle: Bundle?) {
-        binding = FragmentContactProfileBinding.inflate(layoutInflater)
+    private fun addData() {
+        val bundle = arguments
+        val user = FragmentMainArgs.fromBundle(bundle as Bundle).user
         binding.apply {
-            ivUserPhoto.addImage(bundle?.let { FragmentMainArgs.fromBundle(it).photo })
-            tvName.text = bundle?.let { FragmentMainArgs.fromBundle(it).name }
-            tvCareer.text = bundle?.let { FragmentMainArgs.fromBundle(it).career }
-            tvUserAddress.text = bundle?.let { FragmentMainArgs.fromBundle(it).address }
+            ivAddContactPhoto.addImage(user.photo)
+            tvName.text = user.name
+            tvCareer.text = user.career
+            tvUserAddress.text = user.homeAddress
         }
     }
 }

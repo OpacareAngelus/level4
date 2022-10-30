@@ -1,7 +1,7 @@
 package util
 
 import androidx.recyclerview.widget.DiffUtil
-import model.User
+import data.model.User
 
 object DiffUtil : DiffUtil.ItemCallback<User>() {
 

@@ -11,6 +11,10 @@
     <dimen name="user_photo_size">63dp</dimen>
     <dimen name="ib_camera_size">17dp</dimen>
     <dimen name="recycler_view_bottom_padding">60dp</dimen>
+    <dimen name="back_arrow_size">60dp</dimen>
+    <dimen name="padding_back_arrow">10dp</dimen>
+    <dimen name="tv_add_contact_padding">20dp</dimen>
+    <dimen name="padding_lense">10dp</dimen>
 
     <dimen name="small_text_size">11sp</dimen>
     <dimen name="mid_text_size">14sp</dimen>

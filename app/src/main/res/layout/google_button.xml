@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowGoogleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
