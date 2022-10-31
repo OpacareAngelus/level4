@@ -8,8 +8,8 @@ import data.model.User
 
 class FragmentContactsUsersViewModel : ViewModel() {
 
-    private val _userListLiveData = MutableLiveData<MutableList<User>>()
-    val userListLiveData: LiveData<MutableList<User>> = _userListLiveData
+    private val _userListLiveData = MutableLiveData<List<User>>()
+    val userListLiveData: LiveData<List<User>> = _userListLiveData
 
     init {
         _userListLiveData.value = UserData.getUsers()
@@ -17,12 +17,14 @@ class FragmentContactsUsersViewModel : ViewModel() {
 
     fun getUser(position: Int) = _userListLiveData.value?.get(position)
 
-    fun size() : Int? = _userListLiveData.value?.size
+    fun size() = _userListLiveData.value?.size
 
-    fun deleteUser(position: Int) = _userListLiveData.value?.removeAt(position)
-    fun deleteUser(user: User) = _userListLiveData.value?.remove(user)
+    fun deleteUser(user: User) {
+        _userListLiveData.value = _userListLiveData.value?.minus(user) ?: listOf()
+    }
 
     fun add(user: User?) {
-        if(user != null) _userListLiveData.value?.add(user)
+        if (user != null) _userListLiveData.value =
+            _userListLiveData.value?.plus(user) ?: listOf(user)
     }
 }

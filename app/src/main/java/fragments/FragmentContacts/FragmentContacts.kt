@@ -91,15 +91,11 @@ class FragmentContacts : Fragment(), UserListController, Selector {
     }
 
     override fun onContactAdd(user: User) {
-        usersAdapter.submitList(viewModel.userListLiveData.value.also {
-            viewModel.add(user)
-        }?.toMutableList())
+        viewModel.add(user)
     }
 
     override fun onDeleteUser(user: User) {
-        usersAdapter.submitList(viewModel.userListLiveData.value.also {
-            viewModel.deleteUser(user)
-        }?.toMutableList())
+        viewModel.deleteUser(user)
     }
 
     override fun onOpenContactProfile(user: User) {
