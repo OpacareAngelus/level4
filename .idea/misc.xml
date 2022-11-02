@@ -18,6 +18,12 @@
         <entry key="..\:/projects/level4/app/src/main/res/drawable/frame_rounding_color_primary_variant.xml" value="0.204" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/frame_rounding_color_secondary.xml" value="0.204" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/frame_rounding_selected.xml" value="0.1" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_back_arrow.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_big_trash_can.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_camera.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_facebook_logo.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_launcher_background.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/ic_lense.xml" value="0.269" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/img_shaper.xml" value="0.204" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/img_shaper_color_background.xml" value="0.204" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/img_shaper_color_background_selected.xml" value="0.1095" />
@@ -27,6 +33,11 @@
         <entry key="..\:/projects/level4/app/src/main/res/drawable/on_check.xml" value="0.2625" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/out_check.xml" value="0.2625" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/recyclerview_item_cb_selector.xml" value="0.2625" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/shaper.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/shaper_add_photo_btn.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/shaper_color_background.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/shaper_color_background_selected.xml" value="0.269" />
+        <entry key="..\:/projects/level4/app/src/main/res/drawable/shaper_color_prime.xml" value="0.269" />
         <entry key="..\:/projects/level4/app/src/main/res/drawable/trash_can.xml" value="0.1445" />
         <entry key="..\:/projects/level4/app/src/main/res/layout-land/activity_auth.xml" value="0.32522522522522523" />
         <entry key="..\:/projects/level4/app/src/main/res/layout-land/activity_main.xml" value="0.21666666666666667" />

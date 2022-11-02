@@ -26,7 +26,7 @@
     <string name="settings">Опції</string>
     <string name="greetings_message">Давай знайомитись!</string>
     <string name="login_tip_1">Заповнюй профіль та переходь до заявки</string>
-    <string name="e_mail">Електронна пошта</string>
+    <string name="e_mail_with_hyphen">Електронна пошта</string>
     <string name="password">Пароль</string>
     <string name="check_box_remember_me">Запам\'ятати мене</string>
     <string name="or">або</string>
