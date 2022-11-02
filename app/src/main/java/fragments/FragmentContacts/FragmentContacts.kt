@@ -75,7 +75,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         recyclerView.itemAnimator = null
 
         val tracker: SelectionTracker<Long>? = SelectionTracker.Builder(
-            "selection",
+            getString(R.string.selection_id),
             recyclerView,
             StableIdKeyProvider(recyclerView),
             RecyclerAdapterLookUp(recyclerView),
