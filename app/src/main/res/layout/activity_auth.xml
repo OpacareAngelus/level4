@@ -47,7 +47,7 @@
         android:layout_marginEnd="@dimen/margin_mid"
         android:autofillHints="emailAddress"
         android:backgroundTint="?attr/colorOnSecondary"
-        android:hint="@string/e_mail"
+        android:hint="@string/e_mail_with_hyphen"
         android:inputType="textEmailAddress"
         android:minHeight="@dimen/minHeight"
         android:textColor="?attr/colorOnSecondary"

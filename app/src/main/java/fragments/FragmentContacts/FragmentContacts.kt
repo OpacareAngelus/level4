@@ -72,6 +72,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
 
         val recyclerView: RecyclerView = binding.rvContacts.apply { adapter = usersAdapter }
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView.itemAnimator = null
 
         val tracker: SelectionTracker<Long>? = SelectionTracker.Builder(
             "selection",

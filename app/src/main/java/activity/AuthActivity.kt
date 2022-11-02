@@ -10,7 +10,6 @@ import util.ParsingEMailToName
 
 class AuthActivity : AppCompatActivity() {
 
-
     private lateinit var sPref: SharedPreferences
     private lateinit var users: SharedPreferences
 
