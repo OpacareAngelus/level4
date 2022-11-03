@@ -57,7 +57,7 @@ class RecyclerAdapterUserContacts(
 
     private fun deleteUser(user: User, view: View) {
         userListController.onDeleteUser(user)
-        val delMessage = Snackbar.make(view, "${user.name} has deleted.", Snackbar.LENGTH_LONG)
+        val delMessage = Snackbar.make(view, "${user.name} has been deleted.", Snackbar.LENGTH_LONG)
         undoUserDeletion(user, delMessage)
         delMessage.show()
     }

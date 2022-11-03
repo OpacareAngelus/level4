@@ -117,7 +117,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
 
     private fun setObservers() {
         viewModel.userListLiveData.observe(viewLifecycleOwner) {
-            usersAdapter.submitList(it.toMutableList())
+            usersAdapter.submitList(it)
         }
     }
 
@@ -136,12 +136,12 @@ class FragmentContacts : Fragment(), UserListController, Selector {
             val user = viewModel.getUser(viewHolder.absoluteAdapterPosition) as User
             when (direction) {
                 ItemTouchHelper.LEFT -> {
+                    onDeleteUser(user)
                     val delMessage = Snackbar.make(
                         viewHolder.itemView,
-                        "${user.name} has deleted.",
+                        "${user.name} has been deleted.",
                         Snackbar.LENGTH_LONG
                     )
-                    onDeleteUser(user)
                     delMessage.setAction(R.string.cancel) {
                         onContactAdd(user)
                     }

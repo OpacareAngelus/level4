@@ -97,6 +97,7 @@ class AuthActivity : AppCompatActivity() {
             }
         } else {
             allChecks()
+            return
         }
     }
 
