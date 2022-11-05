@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_contact_profile" >
         <action
             android:id="@+id/action_fragmentContactProfile_to_fragmentMain"
-            app:destination="@id/fragmentMain" />
+            app:destination="@id/fragmentMain"/>
     </fragment>
     <dialog
         android:id="@+id/fragmentAddContact"
@@ -35,7 +35,7 @@
         android:label="FragmentAddContact" >
         <action
             android:id="@+id/action_fragmentAddContact_to_fragmentMain"
-            app:destination="@id/fragmentMain" />
+            app:destination="@id/fragmentMain"/>
     </dialog>
 
 </navigation>
