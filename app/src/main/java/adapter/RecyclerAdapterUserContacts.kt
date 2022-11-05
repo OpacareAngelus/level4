@@ -116,7 +116,7 @@ class RecyclerAdapterUserContacts(
                 ivRecyclerItemUserPhoto.updateLayoutParams<ConstraintLayout.LayoutParams> {
                     marginStart = margin.toInt()
                 }
-                currentList[absoluteAdapterPosition].selected = true
+                currentList[absoluteAdapterPosition].isSelected = true
             } else {
                 btnTrashCan.visibility = View.VISIBLE
                 itemContactsRecyclerView.setBackgroundResource(R.drawable.frame_rounded)
@@ -130,7 +130,7 @@ class RecyclerAdapterUserContacts(
                 ivRecyclerItemUserPhoto.updateLayoutParams<ConstraintLayout.LayoutParams> {
                     marginStart = margin.toInt()
                 }
-                currentList[absoluteAdapterPosition].selected = false
+                currentList[absoluteAdapterPosition].isSelected = false
             }
 
             if (!tracker!!.hasSelection()) {
