@@ -13,7 +13,7 @@ data class User(
     val phone: String,
     val homeAddress: String,
     val dataBirth: String,
-    var selected: Boolean
+    var isSelected: Boolean
 ) : Parcelable
 
 
