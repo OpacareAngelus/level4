@@ -54,8 +54,8 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         binding.btnDeleteSelectedContacts.apply {
             setOnClickListener {
                 for (n in viewModel.size()!! - 1 downTo 0) {
-                    println(viewModel.getUser(n)?.selected)
-                    if (viewModel.getUser(n)?.selected == true) {
+                    println(viewModel.getUser(n)?.isSelected)
+                    if (viewModel.getUser(n)?.isSelected == true) {
                         onDeleteUser(viewModel.getUser(n)!!)
                     }
                 }
