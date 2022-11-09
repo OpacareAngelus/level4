@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ContactProfile"
+    android:id="@+id/сontactProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:tag="ContactProfile"
-    tools:context="fragments.FragmentContactProfile">
+    android:tag="ContactProfile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clTopPart"
@@ -31,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/flowUserData"
+            android:id="@+id/fwUserData"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_large"
@@ -53,7 +52,7 @@
             android:src="@drawable/dummy_user_photo" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnBackArrow"
+            android:id="@+id/btnArrow"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="@dimen/padding_back_arrow"

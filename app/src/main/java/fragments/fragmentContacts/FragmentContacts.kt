@@ -1,13 +1,12 @@
-package fragments.FragmentContacts
+package fragments.fragmentContacts
 
 import adapter.RecyclerAdapterUserContacts
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
@@ -21,6 +20,7 @@ import com.example.level4.databinding.FragmentContactsBinding
 import com.google.android.material.snackbar.Snackbar
 import data.model.User
 import fragments.FragmentAddContact
+import fragments.FragmentMainDirections
 import util.RecyclerAdapterLookUp
 import util.Selector
 import util.UserListController
@@ -29,8 +29,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
 
     private lateinit var binding: FragmentContactsBinding
 
-    private val viewModel: FragmentContactsUsersViewModel by viewModels()
-
+    private val sharedViewModel: FragmentContactsUsersViewModel by activityViewModels()
     private val usersAdapter by lazy {
         RecyclerAdapterUserContacts(userListController = this, selector = this)
     }
@@ -43,7 +42,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         binding = FragmentContactsBinding.inflate(layoutInflater)
 
         binding.tvAddContact.setOnClickListener {
-            FragmentAddContact(userListController = this).apply {
+            FragmentAddContact().apply {
                 show(
                     this@FragmentContacts.requireActivity().supportFragmentManager,
                     "AddContact",
@@ -53,10 +52,10 @@ class FragmentContacts : Fragment(), UserListController, Selector {
 
         binding.btnDeleteSelectedContacts.apply {
             setOnClickListener {
-                for (n in viewModel.size()!! - 1 downTo 0) {
-                    println(viewModel.getUser(n)?.isSelected)
-                    if (viewModel.getUser(n)?.isSelected == true) {
-                        onDeleteUser(viewModel.getUser(n)!!)
+                for (n in sharedViewModel.userListLiveData.value?.size!! - 1 downTo 0) {
+                    println(sharedViewModel.getUser(n)?.isSelected)
+                    if (sharedViewModel.getUser(n)?.isSelected == true) {
+                        onDeleteUser(sharedViewModel.getUser(n)!!)
                     }
                 }
                 usersAdapter.getTracker()?.clearSelection()
@@ -74,7 +73,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.itemAnimator = null
 
-        val tracker: SelectionTracker<Long>? = SelectionTracker.Builder(
+        val tracker: SelectionTracker<Long> = SelectionTracker.Builder(
             getString(R.string.selection_id),
             recyclerView,
             StableIdKeyProvider(recyclerView),
@@ -92,19 +91,16 @@ class FragmentContacts : Fragment(), UserListController, Selector {
     }
 
     override fun onContactAdd(user: User) {
-        viewModel.add(user)
+        sharedViewModel.add(user)
     }
 
     override fun onDeleteUser(user: User) {
-        viewModel.deleteUser(user)
+        sharedViewModel.deleteUser(user)
     }
 
     override fun onOpenContactProfile(user: User) {
         findNavController().navigate(
-            R.id.action_fragmentMain_to_fragmentContactProfile,
-            bundleOf(
-                Pair(getString(R.string.argument_contacts_to_contact_profile), user)
-            )
+            FragmentMainDirections.actionFragmentMainToFragmentContactProfile(user)
         )
     }
 
@@ -116,7 +112,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
     }
 
     private fun setObservers() {
-        viewModel.userListLiveData.observe(viewLifecycleOwner) {
+        sharedViewModel.userListLiveData.observe(viewLifecycleOwner) {
             usersAdapter.submitList(it)
         }
     }
@@ -133,7 +129,7 @@ class FragmentContacts : Fragment(), UserListController, Selector {
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            val user = viewModel.getUser(viewHolder.absoluteAdapterPosition) as User
+            val user = sharedViewModel.getUser(viewHolder.absoluteAdapterPosition) as User
             when (direction) {
                 ItemTouchHelper.LEFT -> {
                     onDeleteUser(user)

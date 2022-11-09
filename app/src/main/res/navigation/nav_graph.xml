@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_fragmentMain_to_fragmentContactProfile"
             app:destination="@id/fragmentContactProfile" />
-        <action
-            android:id="@+id/action_fragmentMain_to_fragmentAddContact"
-            app:destination="@id/fragmentAddContact" />
         <argument
             android:name="user"
             app:argType="data.model.User" />
@@ -28,14 +25,9 @@
         <action
             android:id="@+id/action_fragmentContactProfile_to_fragmentMain"
             app:destination="@id/fragmentMain"/>
+        <argument
+            android:name="user"
+            app:argType="data.model.User" />
     </fragment>
-    <dialog
-        android:id="@+id/fragmentAddContact"
-        android:name="fragments.FragmentAddContact"
-        android:label="FragmentAddContact" >
-        <action
-            android:id="@+id/action_fragmentAddContact_to_fragmentMain"
-            app:destination="@id/fragmentMain"/>
-    </dialog>
 
 </navigation>

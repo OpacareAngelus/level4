@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="@+id/ivUserPhoto" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnBackArrow"
+            android:id="@+id/btnArrow"
             android:layout_width="@dimen/back_arrow_size"
             android:layout_height="@dimen/back_arrow_size"
             android:padding="@dimen/padding_back_arrow"

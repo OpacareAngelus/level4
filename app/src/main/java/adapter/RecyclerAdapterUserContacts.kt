@@ -15,7 +15,7 @@ import com.example.level4.R
 import com.example.level4.databinding.RecyclerviewItemBinding
 import com.google.android.material.snackbar.Snackbar
 import extension.addImage
-import fragments.FragmentContacts.FragmentContacts
+import fragments.fragmentContacts.FragmentContacts
 import data.model.User
 import util.DiffUtil
 import util.UserListController
@@ -81,13 +81,13 @@ class RecyclerAdapterUserContacts(
                 btnTrashCan.setOnClickListener {
                     deleteUser(user, itemView)
                 }
-                itemContactsRecyclerView.setOnClickListener {
+                containerItem.setOnClickListener {
                     userListController.onOpenContactProfile(user)
                 }
 
                 startSelection(
                     btnTrashCan,
-                    itemContactsRecyclerView,
+                    containerItem,
                     ivRecyclerItemUserPhoto,
                     root,
                     cbSelected

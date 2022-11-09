@@ -5,8 +5,7 @@
     android:id="@+id/FragmentMain"
     android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="fragments.FragmentMain">
+    android:layout_height="match_parent">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpMain"

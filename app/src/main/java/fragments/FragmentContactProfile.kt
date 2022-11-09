@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.level4.databinding.FragmentContactProfileBinding
 import extension.addImage
 
 class FragmentContactProfile : Fragment() {
 
     private lateinit var binding: FragmentContactProfileBinding
+    private val args: FragmentMainArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,18 +27,15 @@ class FragmentContactProfile : Fragment() {
         super.onCreate(savedInstanceState)
         binding = FragmentContactProfileBinding.inflate(layoutInflater)
 
-        if (arguments != null) {
-            addData()
-        }
+        addData()
 
-        binding.btnBackArrow.setOnClickListener {
+        binding.btnArrow.setOnClickListener {
             findNavController().navigateUp()
         }
     }
 
     private fun addData() {
-        val bundle = arguments
-        val user = FragmentMainArgs.fromBundle(bundle as Bundle).user
+        val user = args.user
         binding.apply {
             ivAddContactPhoto.addImage(user.photo)
             tvName.text = user.name

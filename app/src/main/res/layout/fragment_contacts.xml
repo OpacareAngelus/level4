@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clFragmentContacts"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="fragments.FragmentContacts.FragmentContacts">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clTopBar"
@@ -32,7 +31,7 @@
 
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnBackArrow"
+            android:id="@+id/btnArrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="@dimen/padding_back_arrow"
@@ -51,7 +50,7 @@
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/small_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnBackArrow"
+            app:layout_constraintTop_toBottomOf="@+id/btnArrow"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -72,7 +71,6 @@
         android:layout_marginStart="@dimen/rv_contacts_margin"
         android:layout_marginEnd="@dimen/rv_contacts_margin"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/recycler_view_bottom_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clTopBar"

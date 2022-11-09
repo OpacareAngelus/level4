@@ -5,8 +5,7 @@
     android:id="@+id/MyProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:transitionName="courseImage"
-    tools:context="activity.FragmentMyProfile">
+    android:transitionName="courseImage">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glGuidelineCenter"
@@ -39,7 +38,7 @@
         app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flowMyProfileUserData"
+        android:id="@+id/fwMyProfileUserData"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -110,8 +109,8 @@
         android:textSize="@dimen/large_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/flowMyProfileLinksToAnotherSN"
-        app:layout_constraintTop_toBottomOf="@id/flowMyProfileLinksToAnotherSN" />
+        app:layout_constraintStart_toEndOf="@+id/fwMyProfileLinksToAnotherSN"
+        app:layout_constraintTop_toBottomOf="@id/fwMyProfileLinksToAnotherSN" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEditProfile"
@@ -128,12 +127,12 @@
         android:textSize="@dimen/mid_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/flowMyProfileLinksToAnotherSN"
+        app:layout_constraintEnd_toStartOf="@+id/fwMyProfileLinksToAnotherSN"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flowMyProfileLinksToAnotherSN" />
+        app:layout_constraintTop_toBottomOf="@id/fwMyProfileLinksToAnotherSN" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flowMyProfileLinksToAnotherSN"
+        android:id="@+id/fwMyProfileLinksToAnotherSN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivMyProfileFacebook, ivMyProfileLinkedIn"

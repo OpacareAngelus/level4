@@ -1,4 +1,4 @@
-package fragments.FragmentContacts
+package fragments.fragmentContacts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,10 +17,8 @@ class FragmentContactsUsersViewModel : ViewModel() {
 
     fun getUser(position: Int) = _userListLiveData.value?.get(position)
 
-    fun size() = _userListLiveData.value?.size
-
     fun deleteUser(user: User) {
-        _userListLiveData.value = _userListLiveData.value?.minus(user) ?: listOf()
+        _userListLiveData.value = _userListLiveData.value?.minus(user) ?: emptyList()
     }
 
     fun add(user: User?) {

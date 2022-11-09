@@ -10,20 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
-import com.example.level4.databinding.FragmentAddContactBinding
+import androidx.fragment.app.activityViewModels
+import com.example.level4.databinding.DialogFragmentAddContactBinding
 import data.model.User
-import fragments.FragmentContacts.FragmentContacts
+import fragments.fragmentContacts.FragmentContactsUsersViewModel
 
 
-class FragmentAddContact(private val userListController: FragmentContacts) : DialogFragment() {
+class FragmentAddContact : DialogFragment() {
 
-    private lateinit var binding: FragmentAddContactBinding
+    private lateinit var binding: DialogFragmentAddContactBinding
+    private val sharedViewModel: FragmentContactsUsersViewModel by activityViewModels()
     private var activityResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 contactPhoto = data?.data
-                binding.ivUserPhoto?.setImageURI(data?.data)
+                binding.ivUserPhoto.setImageURI(data?.data)
             }
         }
     private var contactPhoto: Uri? = null
@@ -33,7 +35,7 @@ class FragmentAddContact(private val userListController: FragmentContacts) : Dia
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddContactBinding.inflate(layoutInflater)
+        binding = DialogFragmentAddContactBinding.inflate(layoutInflater)
         dialog?.setTitle("AddContact")
         return binding.root
     }
@@ -52,13 +54,13 @@ class FragmentAddContact(private val userListController: FragmentContacts) : Dia
             dismiss()
         }
 
-        binding.btnBackArrow.setOnClickListener {
+        binding.btnArrow.setOnClickListener {
             dismiss()
         }
     }
 
     private fun addUser() {
-        userListController.onContactAdd(
+        sharedViewModel.add(
             User(
                 0,
                 contactPhoto.toString(),

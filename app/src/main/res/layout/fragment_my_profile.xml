@@ -5,8 +5,7 @@
     android:id="@+id/MyProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:transitionName="courseImage"
-    tools:context="activity.FragmentMyProfile">
+    android:transitionName="courseImage">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glGuidelineCenter"
@@ -39,7 +38,7 @@
         app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flowMyProfileUserData"
+        android:id="@+id/fwMyProfileUserData"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -124,7 +123,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flowMyProfileLinksToAnotherSN"
+        android:id="@+id/fwMyProfileLinksToAnotherSN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivMyProfileFacebook, ivMyProfileLinkedIn"
