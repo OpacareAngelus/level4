@@ -1,31 +1,19 @@
 package fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import base.BaseFragment
 import com.example.level4.databinding.FragmentContactProfileBinding
 import extension.addImage
 
-class FragmentContactProfile : Fragment() {
+class FragmentContactProfile : BaseFragment<FragmentContactProfileBinding>(FragmentContactProfileBinding::inflate) {
 
-    private lateinit var binding: FragmentContactProfileBinding
     private val args: FragmentMainArgs by navArgs()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentContactProfileBinding.inflate(layoutInflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         addData()
 

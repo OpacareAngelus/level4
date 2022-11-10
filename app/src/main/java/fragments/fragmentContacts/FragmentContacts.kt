@@ -2,10 +2,7 @@ package fragments.fragmentContacts
 
 import adapter.RecyclerAdapterUserContacts
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
@@ -15,6 +12,7 @@ import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import base.BaseFragment
 import com.example.level4.R
 import com.example.level4.databinding.FragmentContactsBinding
 import com.google.android.material.snackbar.Snackbar
@@ -25,21 +23,16 @@ import util.RecyclerAdapterLookUp
 import util.Selector
 import util.UserListController
 
-class FragmentContacts : Fragment(), UserListController, Selector {
-
-    private lateinit var binding: FragmentContactsBinding
+class FragmentContacts : BaseFragment<FragmentContactsBinding>(FragmentContactsBinding::inflate),
+    UserListController, Selector {
 
     private val sharedViewModel: FragmentContactsUsersViewModel by activityViewModels()
     private val usersAdapter by lazy {
         RecyclerAdapterUserContacts(userListController = this, selector = this)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentContactsBinding.inflate(layoutInflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.tvAddContact.setOnClickListener {
             FragmentAddContact().apply {
@@ -62,13 +55,6 @@ class FragmentContacts : Fragment(), UserListController, Selector {
                 visibility = View.INVISIBLE
             }
         }
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val recyclerView: RecyclerView = binding.rvContacts.apply { adapter = usersAdapter }
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.itemAnimator = null
