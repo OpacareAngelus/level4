@@ -28,4 +28,5 @@ abstract class BaseFragment<VBinding : ViewBinding>(
         super.onDestroyView()
         _binding = null
     }
+
 }

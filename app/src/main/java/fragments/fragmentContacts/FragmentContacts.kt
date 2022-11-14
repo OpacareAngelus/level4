@@ -55,6 +55,7 @@ class FragmentContacts : BaseFragment<FragmentContactsBinding>(FragmentContactsB
                 visibility = View.INVISIBLE
             }
         }
+
         val recyclerView: RecyclerView = binding.rvContacts.apply { adapter = usersAdapter }
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.itemAnimator = null
