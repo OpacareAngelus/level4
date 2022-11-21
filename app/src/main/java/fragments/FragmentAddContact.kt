@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import com.example.level4.R
 import com.example.level4.databinding.DialogFragmentAddContactBinding
 import data.model.User
 import fragments.fragmentContacts.FragmentContactsUsersViewModel
@@ -36,7 +37,7 @@ class FragmentAddContact : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DialogFragmentAddContactBinding.inflate(layoutInflater)
-        dialog?.setTitle("AddContact")
+        dialog?.setTitle(getString(R.string.tag_add_contact))
         return binding.root
     }
 
@@ -60,18 +61,20 @@ class FragmentAddContact : DialogFragment() {
     }
 
     private fun addUser() {
-        sharedViewModel.add(
-            User(
-                0,
-                contactPhoto.toString(),
-                binding.etUsername.text.toString(),
-                binding.etCareer.text.toString(),
-                binding.etEmail.text.toString(),
-                binding.etPhone.text.toString(),
-                binding.etAddress.text.toString(),
-                binding.etDataOfBirth.text.toString(),
-                false
+        with(binding) {
+            sharedViewModel.add(
+                User(
+                    0,
+                    contactPhoto.toString(),
+                    etUsername.text.toString(),
+                    etCareer.text.toString(),
+                    etEmail.text.toString(),
+                    etPhone.text.toString(),
+                    etAddress.text.toString(),
+                    etDataOfBirth.text.toString(),
+                    false
+                )
             )
-        )
+        }
     }
 }

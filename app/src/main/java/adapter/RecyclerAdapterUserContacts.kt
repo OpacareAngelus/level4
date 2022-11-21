@@ -29,7 +29,6 @@ class RecyclerAdapterUserContacts(
     private var tracker: SelectionTracker<Long>? = null
 
     fun setTracker(tracker: SelectionTracker<Long>?) {
-
         this.tracker = tracker
     }
 
