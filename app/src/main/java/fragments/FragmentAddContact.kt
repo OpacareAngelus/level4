@@ -37,26 +37,27 @@ class FragmentAddContact : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DialogFragmentAddContactBinding.inflate(layoutInflater)
-        dialog?.setTitle(getString(R.string.tag_add_contact))
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        dialog?.setTitle(getString(R.string.tag_add_contact))
+        with(binding) {
+            btnAddPhoto.setOnClickListener {
+                val intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                activityResultLauncher.launch(intent)
+            }
 
-        binding.btnAddPhoto.setOnClickListener {
-            val intent =
-                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            activityResultLauncher.launch(intent)
-        }
+            btnSaveContact.setOnClickListener {
+                addUser()
+                dismiss()
+            }
 
-        binding.btnSaveContact.setOnClickListener {
-            addUser()
-            dismiss()
-        }
-
-        binding.btnArrow.setOnClickListener {
-            dismiss()
+            btnArrow.setOnClickListener {
+                dismiss()
+            }
         }
     }
 
