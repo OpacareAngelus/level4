@@ -49,4 +49,7 @@
     <string name="incorrect_password" translatable="false">Incorrect password</string>
     <string name="selection_id">selection</string>
     <string name="tag_add_contact">AddContact</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_contacts">My Contacts</string>
+    <string name="has_been_deleted">%s has been deleted.</string>
 </resources>

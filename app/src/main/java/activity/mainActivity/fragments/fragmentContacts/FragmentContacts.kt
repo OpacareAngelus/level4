@@ -1,6 +1,6 @@
-package fragments.fragmentContacts
+package activity.mainActivity.fragments.fragmentContacts
 
-import adapter.RecyclerAdapterUserContacts
+import activity.mainActivity.adapter.RecyclerAdapterUserContacts
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
@@ -16,9 +16,9 @@ import base.BaseFragment
 import com.example.level4.R
 import com.example.level4.databinding.FragmentContactsBinding
 import com.google.android.material.snackbar.Snackbar
-import data.model.User
-import fragments.FragmentAddContact
-import fragments.FragmentMainDirections
+import activity.mainActivity.data.model.User
+import activity.mainActivity.fragments.fragmentContacts.fragmentAddContact.FragmentAddContact
+import activity.mainActivity.fragments.FragmentMainDirections
 import util.RecyclerAdapterLookUp
 import util.Selector
 import util.UserListController
@@ -38,19 +38,14 @@ class FragmentContacts : BaseFragment<FragmentContactsBinding>(FragmentContactsB
             FragmentAddContact().apply {
                 show(
                     this@FragmentContacts.requireActivity().supportFragmentManager,
-                    "AddContact",
+                    context?.getString(R.string.tag_add_contact),
                 )
             }
         }
 
         binding.btnDeleteSelectedContacts.apply {
             setOnClickListener {
-                for (n in sharedViewModel.userListLiveData.value?.size!! - 1 downTo 0) {
-                    println(sharedViewModel.getUser(n)?.isSelected)
-                    if (sharedViewModel.getUser(n)?.isSelected == true) {
-                        onDeleteUser(sharedViewModel.getUser(n)!!)
-                    }
-                }
+                sharedViewModel.deleteSelectedUsers()
                 usersAdapter.getTracker()?.clearSelection()
                 visibility = View.INVISIBLE
             }
@@ -120,9 +115,10 @@ class FragmentContacts : BaseFragment<FragmentContactsBinding>(FragmentContactsB
             when (direction) {
                 ItemTouchHelper.LEFT -> {
                     onDeleteUser(user)
+                    val messageText = String.format(getString(R.string.has_been_deleted), user.name)
                     val delMessage = Snackbar.make(
                         viewHolder.itemView,
-                        "${user.name} has been deleted.",
+                        messageText,
                         Snackbar.LENGTH_LONG
                     )
                     delMessage.setAction(R.string.cancel) {

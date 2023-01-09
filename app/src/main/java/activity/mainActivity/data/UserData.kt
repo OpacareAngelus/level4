@@ -1,6 +1,6 @@
-package data
+package activity.mainActivity.data
 
-import data.model.User
+import activity.mainActivity.data.model.User
 
 object UserData {
 

@@ -1,5 +1,6 @@
-package fragments
+package activity.mainActivity.fragments.fragmentContacts.FragmentContactProfile
 
+import activity.mainActivity.fragments.FragmentMainArgs
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController

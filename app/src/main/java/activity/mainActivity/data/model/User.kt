@@ -1,4 +1,4 @@
-package data.model
+package activity.mainActivity.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,10 +1,10 @@
-package fragments.fragmentContacts
+package activity.mainActivity.fragments.fragmentContacts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import data.UserData
-import data.model.User
+import activity.mainActivity.data.UserData
+import activity.mainActivity.data.model.User
 
 class FragmentContactsUsersViewModel : ViewModel() {
 
@@ -24,5 +24,13 @@ class FragmentContactsUsersViewModel : ViewModel() {
     fun add(user: User?) {
         if (user != null) _userListLiveData.value =
             _userListLiveData.value?.plus(user) ?: listOf(user)
+    }
+
+    fun deleteSelectedUsers(){
+        for (n in userListLiveData.value?.size!! - 1 downTo 0) {
+            if (getUser(n)?.isSelected == true) {
+                deleteUser(getUser(n)!!)
+            }
+        }
     }
 }

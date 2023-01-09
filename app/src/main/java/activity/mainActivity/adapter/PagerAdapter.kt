@@ -1,9 +1,9 @@
-package adapter
+package activity.mainActivity.adapter
 
-import activity.FragmentMyProfile
+import activity.mainActivity.fragments.fragmentMyProfile.FragmentMyProfile
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import fragments.fragmentContacts.FragmentContacts
+import activity.mainActivity.fragments.fragmentContacts.FragmentContacts
 
 class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

@@ -1,5 +1,6 @@
-package activity
+package activity.authActivity
 
+import activity.mainActivity.MainActivity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle

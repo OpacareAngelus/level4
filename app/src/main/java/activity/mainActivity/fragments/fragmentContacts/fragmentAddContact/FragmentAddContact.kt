@@ -1,4 +1,4 @@
-package fragments
+package activity.mainActivity.fragments.fragmentContacts.fragmentAddContact
 
 import android.app.Activity
 import android.content.Intent
@@ -13,8 +13,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.level4.R
 import com.example.level4.databinding.DialogFragmentAddContactBinding
-import data.model.User
-import fragments.fragmentContacts.FragmentContactsUsersViewModel
+import activity.mainActivity.data.model.User
+import activity.mainActivity.fragments.fragmentContacts.FragmentContactsUsersViewModel
 
 
 class FragmentAddContact : DialogFragment() {

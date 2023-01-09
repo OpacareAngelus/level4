@@ -1,6 +1,6 @@
 package util
 
-import data.model.User
+import activity.mainActivity.data.model.User
 
 interface UserListController {
     fun onDeleteUser(user: User)
