@@ -42,4 +42,7 @@
     <string name="cancel">Відмінити</string>
     <string name="deletedUser">"${user.name} видалено."</string>
     <string name="home_address">домашня адреса</string>
+    <string name="my_profile">Мій профіль</string>
+    <string name="my_contacts">Мої контакти</string>
+    <string name="has_been_deleted">%s видалено.</string>
 </resources>

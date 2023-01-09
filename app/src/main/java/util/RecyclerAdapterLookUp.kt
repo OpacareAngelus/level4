@@ -1,6 +1,6 @@
 package util
 
-import adapter.RecyclerAdapterUserContacts
+import activity.mainActivity.adapter.RecyclerAdapterUserContacts
 import android.view.MotionEvent
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.RecyclerView
